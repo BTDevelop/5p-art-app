@@ -8,19 +8,27 @@ function onload(){
     for(var i = 0; i < 1000; i++){
       setTimeout(() => { 
         draw();
-        save();
+        var canvas = document.getElementById('defaultCanvas0')
+        var link = document.createElement('a');
+        link.download = generateUUIDUsingMathRandom() + '.png';
+        link.href = canvas.toDataURL();
+        link.click();
+        link.delete;
+        console.log(link.href);
       }, 50 * 1000);
     }
 }
 
-function save(){
-  var canvas = document.getElementById('defaultCanvas0')
-  var link = document.createElement('a');
-  link.download = generateUUID() + '.png';
-  link.href = canvas.toDataURL();
-  link.click();
-  link.delete;
-}
+// function save(){
+//   location.reload();
+//   //console.log("abc");
+//   // console.log(canvas.toDataURL());
+//   // const link = document.createElement('a');
+//   // link.download = generateUUIDUsingMathRandom() + '.png';
+//   // link.href = canvas.toDataURL();
+//   // link.click();
+//   // link.delete;
+// }
 
 function setup() {
   createCanvas(1600, 1600);
@@ -49,7 +57,7 @@ function setup() {
 
 function draw() {
   clear();
-  var uuid = generateUUID();
+  var uuid = generateUUIDUsingMathRandom();
   palette = shuffle(createPalette(uuid), true);
   // randomSeed(current);
   noiseSeed(current);
@@ -415,7 +423,7 @@ function drawShape(cx, cy, r, nPhase) {
   pop();
 }
 
-function generateUUID() { 
+function generateUUIDUsingMathRandom() { 
   var d = new Date().getTime();//Timestamp
   var d2 = (performance && performance.now && (performance.now()*1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -430,3 +438,41 @@ function generateUUID() {
       return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
   });
 }
+
+let url = [
+  "d609a44c-b829-40ab-9925-53c311cdba05",
+  "d42b23-e578b7-47b8b7-93e20a-aecd2f",
+  "c35b68-915184-11ec84-b90902-0242ac",
+  "86bc91-915145-11ec23-b90967-0242ac",
+  "202c39-283845-b8b08d-f2d492-f29559",
+  "1f2041-4b3f72-ffc857-119da4-19647e",
+  "2f4858-33658a-86bbd8-f6ae2d-f26419",
+  "ffac81-ff928b-fec3a6-efe9ae-cdeac0",
+  "f79256-fbd1a2-7dcfb6-00b2ca-1d4e89",
+  "e27396-ea9ab2-efcfe3-eaf2d7-b3dee2",
+  "966b9d-c98686-f2b880-fff4ec-e7cfbc",
+  "50514f-f25f5c-ffe066-247ba0-70c1b3",
+  "177e89-084c61-db3a34-ffc857-323031",
+  "390099-9e0059-ff0054-ff5400-ffbd00",
+  "0d3b66-faf0ca-f4d35e-ee964b-f95738",
+  "177e89-084c61-db3a34-ffc857-323031",
+  "780000-c1121f-fdf0d5-003049-669bbc",
+  "eae4e9-fff1e6-fde2e4-fad2e1-e2ece9-bee1e6-f0efeb-dfe7fd-cddafd",
+  "f94144-f3722c-f8961e-f9c74f-90be6d-43aa8b-577590",
+  "555b6e-89b0ae-bee3db-faf9f9-ffd6ba",
+  "9b5de5-f15bb5-fee440-00bbf9-00f5d4",
+  "ef476f-ffd166-06d6a0-118ab2-073b4c",
+  "006466-065a60-0b525b-144552-1b3a4b-212f45-272640-312244-3e1f47-4d194d",
+  "f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1",
+  "f6bd60-f7ede2-f5cac3-84a59d-f28482",
+  "0081a7-00afb9-fdfcdc-fed9b7-f07167",
+  "f4f1de-e07a5f-3d405b-81b29a-f2cc8f",
+  "50514f-f25f5c-ffe066-247ba0-70c1b3",
+  "001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226",
+  "ef476f-ffd166-06d6a0-118ab2-073b4c",
+  "fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a",
+  "e63946-f1faee-a8dadc-457b9d-1d3557",
+  "264653-2a9d8f-e9c46a-f4a261-e76f51",
+  "984fff-07ccwl-4c35ea-8d86re-f09624",
+  "421d95-931dru-4590es-b4e7fc-4f6474"
+];
